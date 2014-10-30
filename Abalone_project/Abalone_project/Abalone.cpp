@@ -32,34 +32,27 @@ Abalone::Abalone(char Sex, float Length, float Diameter, float Height, float Who
 	this->Whole_weight = Whole_weight;
 }
 
-void Abalone::define_classes(std::vector<Abalone> &Abalones, std::set<int> &classes, int N_learning)
+void Abalone::define_classes(std::vector<Abalone> &Abalones, std::set<int> &classes)
 {
-	if (N_learning > Abalones.size()) 
-	{
-		std::cout << "Wrong input argument: 'N_learning' must be less than count of Abalones" << std::endl;
-		return;
-	}
+	int N_learning = Abalones.size();
 	for (int i = 0; i < N_learning; i++)
 	{
 		classes.insert(Abalones[i].get_Rings());
 	}
 }
 
-void Abalone::define_Sex_classes(std::vector<Abalone> &Abalones, std::set<char> &Sex_classes, int N_learning)
+void Abalone::define_Sex_classes(std::vector<Abalone> &Abalones, std::set<char> &Sex_classes)
 {
-	if (N_learning > Abalones.size())
-	{
-		std::cout << "Wrong input argument: 'N_learning' must be less than count of Abalones" << std::endl;
-		return;
-	}
+	int N_learning = Abalones.size();
 	for (int i = 0; i < N_learning; i++)
 	{
 		Sex_classes.insert(Abalones[i].get_Sex());
 	}
 }
 
-void Abalone::define_max_min_values(std::vector<Abalone> &Abalones, std::set<int> &classes, int N_learning)
+void Abalone::define_max_min_values(std::vector<Abalone> &Abalones, std::set<int> &classes)
 {
+	int N_learning = Abalones.size();
 	max_Length = min_Length = Abalones[0].get_Length();
 	max_Diameter = min_Diameter = Abalones[0].get_Diameter();
 	max_Height = min_Height = Abalones[0].get_Height();

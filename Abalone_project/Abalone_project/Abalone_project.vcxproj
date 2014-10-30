@@ -79,12 +79,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Abalone.cpp" />
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Naive_Bayes.cpp" />
     <ClCompile Include="Parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abalone.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="Naive_Bayes.h" />
     <ClInclude Include="Parser.h" />
   </ItemGroup>

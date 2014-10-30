@@ -23,8 +23,8 @@ public:
 	float get_Viscera_weight(){ return this->Viscera_weight; };
 	float get_Shell_weight(){ return this->Shell_weight; };
 	int get_Rings(){ return this->Rings; }
-	static void define_classes(std::vector<Abalone> &Abalones, std::set<int> &classes, int N_learning);
-	static void define_Sex_classes(std::vector<Abalone> &Abalones, std::set<char> &Sex_classes, int N_learning);
-	static void define_max_min_values(std::vector<Abalone> &Abalones, std::set<int> &classes, int N_learning);
+	static void define_classes(std::vector<Abalone> &Abalones, std::set<int> &classes);
+	static void define_Sex_classes(std::vector<Abalone> &Abalones, std::set<char> &Sex_classes);
+	static void define_max_min_values(std::vector<Abalone> &Abalones, std::set<int> &classes);
 	static int get_int_class_from_float(int number_of_classes, float left_border, float right_border, float value);
 };
