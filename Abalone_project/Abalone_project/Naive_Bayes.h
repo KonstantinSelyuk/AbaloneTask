@@ -7,9 +7,6 @@
 class Naive_Bayes
 {
 private:
-	enum OPTIMAL_COUNTS_STRING{
-		DIAMETER, LENGTH, HEIGHT, WHOLE_WEIGHT, VISCERA_WEIGHT, SHELL_WEIGHT, SHUCKED_WEIGHT
-	};
 	typedef std::map < int, std::map <int, float> > probability_map;
 	std::map <int, std::map <char, float> > conditional_probabilities_Sex;
 	probability_map conditional_probabilities_Length;
@@ -28,7 +25,7 @@ private:
 	int optimal_interval_count_Viscera_weight;
 	int optimal_interval_count_Shell_weight;
 	bool is_classes_probabilities_calculated;
-	int find_max_precision(OPTIMAL_COUNTS_STRING TAG, std::vector<Abalone> &learning_Abalones, std::vector<Abalone> &test_Abalones, std::set<int> &classes, std::set<char> &Sex_classes, int precision);
+	int find_max_precision(Global::ATTRIBUTES TAG, std::vector<Abalone> &learning_Abalones, std::vector<Abalone> &test_Abalones, std::set<int> &classes, std::set<char> &Sex_classes, int precision);
 	bool set_NB_parameters_from_file(std::string file_name);
 public:
 	Naive_Bayes();

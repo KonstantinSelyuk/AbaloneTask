@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Abalone.cpp" />
+    <ClCompile Include="C4_5.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Naive_Bayes.cpp" />
@@ -86,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abalone.h" />
+    <ClInclude Include="C4_5.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Naive_Bayes.h" />
     <ClInclude Include="Parser.h" />

@@ -246,13 +246,13 @@ int Naive_Bayes::find_optimal_interval_counts(std::vector<Abalone> &learning_Aba
 			return 0;
 		}
 	}
-	this->optimal_interval_count_Diameter = find_max_precision(DIAMETER, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Length = find_max_precision(LENGTH, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Height = find_max_precision(HEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Viscera_weight = find_max_precision(VISCERA_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Shell_weight = find_max_precision(SHELL_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Shucked_weight = find_max_precision(SHUCKED_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
-	this->optimal_interval_count_Whole_weight = find_max_precision(WHOLE_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Diameter = find_max_precision(Global::DIAMETER, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Length = find_max_precision(Global::LENGTH, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Height = find_max_precision(Global::HEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Viscera_weight = find_max_precision(Global::VISCERA_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Shell_weight = find_max_precision(Global::SHELL_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Shucked_weight = find_max_precision(Global::SHUCKED_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
+	this->optimal_interval_count_Whole_weight = find_max_precision(Global::WHOLE_WEIGHT, learning_Abalones, test_Abalones, classes, Sex_classes, precision);
 	calculate_conditional_probabilities(learning_Abalones, classes, Sex_classes);
 
 	std::map<std::string, std::string> map_ofparameters;
@@ -294,7 +294,7 @@ bool Naive_Bayes::is_optimal_interval_counts_calculated(std::string file_name)
 	return true;
 }
 
-int Naive_Bayes::find_max_precision(OPTIMAL_COUNTS_STRING TAG, std::vector<Abalone> &learning_Abalones, std::vector<Abalone> &test_Abalones, std::set<int> &classes, std::set<char> &Sex_classes, int precision)
+int Naive_Bayes::find_max_precision(Global::ATTRIBUTES TAG, std::vector<Abalone> &learning_Abalones, std::vector<Abalone> &test_Abalones, std::set<int> &classes, std::set<char> &Sex_classes, int precision)
 {
 	int N = 50, tmp_count = 0;
 	float tmp = 0;
@@ -302,31 +302,31 @@ int Naive_Bayes::find_max_precision(OPTIMAL_COUNTS_STRING TAG, std::vector<Abalo
 	{
 		switch (TAG)
 		{
-		case DIAMETER:
+		case Global::DIAMETER:
 			this->optimal_interval_count_Diameter = i;
 			std::cout << "DIAMETER: ";
 			break;
-		case LENGTH:
+		case Global::LENGTH:
 			this->optimal_interval_count_Length = i;
 			std::cout << "LENGTH: ";
 			break;
-		case HEIGHT:
+		case Global::HEIGHT:
 			this->optimal_interval_count_Height = i;
 			std::cout << "HEIGHT: ";
 			break;
-		case WHOLE_WEIGHT:
+		case Global::WHOLE_WEIGHT:
 			this->optimal_interval_count_Whole_weight = i;
 			std::cout << "WHOLE_WEIGHT: ";
 			break;
-		case VISCERA_WEIGHT:
+		case Global::VISCERA_WEIGHT:
 			this->optimal_interval_count_Viscera_weight = i;
 			std::cout << "VISCERA_WEIGHT: ";
 			break;
-		case SHELL_WEIGHT:
+		case Global::SHELL_WEIGHT:
 			this->optimal_interval_count_Shell_weight = i;
 			std::cout << "SHELL_WEIGHT: ";
 			break;
-		case SHUCKED_WEIGHT:
+		case Global::SHUCKED_WEIGHT:
 			this->optimal_interval_count_Shucked_weight = i;
 			std::cout << "SHUCKED_WEIGHT: ";
 			break;

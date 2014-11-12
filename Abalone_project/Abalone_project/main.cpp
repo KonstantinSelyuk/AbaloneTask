@@ -1,7 +1,8 @@
 #include "Parser.h"
 #include "Abalone.h"
-#include "Naive_Bayes.h"
 #include "Global.h"
+#include "Naive_Bayes.h"
+#include "C4_5.h"
 
 template <typename T1, typename T2, typename T3>
 void show_map_of_maps(std::map<T1, std::map<T2, T3> > &map_of_maps)
@@ -21,7 +22,7 @@ void show_map_of_maps(std::map<T1, std::map<T2, T3> > &map_of_maps)
 int main()
 {
 	//defining Abalones (4177)
-	// We will use first 80% (3341) of input data for learning and last 20% (836) 
+	// We will use first 80% (3341) of input data for learning and last 20% (836) for checking
 	std::vector<Abalone> Abalones, learning_Abalones, test_Abalones;
 	Parser::get_Abalones_from_data(Abalones, Global::DATA_FILE_NAME);
 
@@ -37,23 +38,42 @@ int main()
 	Abalone::define_max_min_values(learning_Abalones, classes);
 	std::cout << " Was found " << classes.size() << " classes! " << std::endl;
 
+	////-----------------------------------------------------------------------------------------------------------------------------------
 	//Learning (Naive Bayes method)
-	Naive_Bayes NB(classes.size());
+	Naive_Bayes NB(1);
 	NB.calculate_classes_probabilities(learning_Abalones, classes);
 	NB.calculate_conditional_probabilities(learning_Abalones, classes, Sex_classes);
 	NB.find_optimal_interval_counts(learning_Abalones, test_Abalones, classes, Sex_classes, 0, Global::PARAMETERS_NAIVE_BAYES_FILE_NAME);
 
 
-	//Predictiong (Naive Bayes method)
+	//Predicting (Naive Bayes method)
 	
+	std::cout << "Naive Bayes method " << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
 		float out_precision = NB.calculate_precision_of_prediction(test_Abalones, classes, i);
 		std::cout << " Precision + or - " << i << " years: "<< out_precision * 100 << "% " << std::endl;
 	}
-	
+	////-----------------------------------------------------------------------------------------------------------------------------------
 
+
+	// C4.5 Algorithm
+	C4_5 C45;
 	
+	float f = C45.info(learning_Abalones, classes);
+	//Node *tree = new Node();
+	//C45.build_desigion_tree(tree, learning_Abalones, Sex_classes, classes);
+	//C45.desigion_tree_to_file(tree, Global::C45_DESIGION_TREE_FILE_NAME);
+	std::cout << "C4.5 Algorithm " << std::endl;
+	Node *tree = C45.tree_from_file(Global::C45_DESIGION_TREE_FILE_NAME, Sex_classes);
+	for (int i = 0; i < 5; i++)
+	{
+		float out_precision = C45.calculate_precision_of_prediction(test_Abalones, tree, i);
+		std::cout << " Precision + or - " << i << " years: "<< out_precision * 100 << "% " << std::endl;
+	}
+	
+	
+	//std::cout << std::endl << f << " " << f2 << " " << f3 << " " << f4 << " " << f5 << " " << f6 << " " << f7 << " " << f8 << " " << f9 << "       ";
 	//show_map_of_maps(NB.get_conditional_probabilities_Length());
 	//NB.show_classes_probabilities();
 	return 0;

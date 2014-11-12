@@ -1,6 +1,7 @@
 #include "Parser.h"
 
 std::string Parser::delimiter_colon = ":";
+std::string Parser::delimiter_space = " ";
 
 void Parser::get_Abalones_from_data(std::vector<Abalone> &Abalones, std::string file_name)
 {

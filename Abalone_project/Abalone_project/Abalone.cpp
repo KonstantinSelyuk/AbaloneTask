@@ -5,6 +5,7 @@ float Abalone::max_Length, Abalone::max_Diameter, Abalone::max_Height, Abalone::
       Abalone::max_Shucked_weight, Abalone::max_Viscera_weight, Abalone::max_Shell_weight, 
 	  Abalone::min_Length, Abalone::min_Diameter, Abalone::min_Height, Abalone::min_Whole_weight,
 	  Abalone::min_Shucked_weight, Abalone::min_Viscera_weight, Abalone::min_Shell_weight;
+Global::ATTRIBUTES Abalone::COMPARE_ORIENTATION;
 
 Abalone::Abalone()
 {
@@ -91,4 +92,26 @@ int Abalone::get_int_class_from_float(int number_of_classes, float left_border, 
 		return 0;
 	}
 	return (int)(((value - left_border) * number_of_classes) / (right_border - left_border));
+}
+
+bool Abalone::compare(Abalone a, Abalone b)
+{
+	switch (COMPARE_ORIENTATION)
+	{
+	case Global::DIAMETER:
+		return a.Diameter < b.Diameter;
+	case Global::HEIGHT:
+		return a.Height < b.Height;
+	case Global::LENGTH:
+		return a.Length < b.Length;
+	case Global::SHELL_WEIGHT:
+		return a.Shell_weight < b.Shell_weight;
+	case Global::SHUCKED_WEIGHT:
+		return a.Shucked_weight < b.Shucked_weight;
+	case Global::WHOLE_WEIGHT:
+		return a.Whole_weight < b.Whole_weight;
+	case Global::VISCERA_WEIGHT:
+		return a.Viscera_weight < b.Viscera_weight;
+	}
+	return false;
 }
