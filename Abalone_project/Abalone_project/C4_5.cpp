@@ -404,7 +404,7 @@ Node * C4_5::tree_from_file(std::string file_name, std::set<char> &Sex_classes)
 	std::map<int, Node *> map;
 	Node *root = new Node(); root->id = 1;
 	map.insert(std::pair<int, Node*>(root->id, root));
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < count-1; i++)
 	{
 		int a, b;
 		iss2 >> a >> b;

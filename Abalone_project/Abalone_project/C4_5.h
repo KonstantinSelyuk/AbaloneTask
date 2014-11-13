@@ -43,7 +43,11 @@ public:
 	Condition *condition;
 	Node(){ isLeave = false; father = NULL; id = ++count; result_class = -1; Sex_class = '-'; condition = new Condition(); }
 	Node(Node * f){ father = f; isLeave = false; id = ++count; result_class = -1; Sex_class = '-'; condition = new Condition(); }
-	~Node(){ delete condition; }
+	~Node()
+	{ 
+		delete condition; 
+		for (Node *n : children){ delete n; } 
+	}
 	Node * get_father(){ return this->father; }
 	void set_father(Node * father){ this->father = father; }
 	bool is_leave(){ return isLeave; }
