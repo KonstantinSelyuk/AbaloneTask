@@ -81,6 +81,8 @@
     <ClCompile Include="Abalone.cpp" />
     <ClCompile Include="C4_5.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Linear_Regression.cpp" />
+    <ClCompile Include="Linear_Regression_Matrix.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Naive_Bayes.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -89,6 +91,9 @@
     <ClInclude Include="Abalone.h" />
     <ClInclude Include="C4_5.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="Linear_Regression.h" />
+    <ClInclude Include="Linear_Regression_Matrix.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Naive_Bayes.h" />
     <ClInclude Include="Parser.h" />
   </ItemGroup>

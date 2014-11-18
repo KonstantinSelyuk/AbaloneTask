@@ -1,4 +1,4 @@
-
+#pragma once
 #include "Abalone.h"
 #include "Parser.h"
 #include <iostream>

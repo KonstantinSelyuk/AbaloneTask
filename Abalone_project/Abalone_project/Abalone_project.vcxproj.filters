@@ -33,6 +33,12 @@
     <ClCompile Include="C4_5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Linear_Regression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Linear_Regression_Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Parser.h">
@@ -48,6 +54,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C4_5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linear_Regression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linear_Regression_Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

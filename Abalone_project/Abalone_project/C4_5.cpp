@@ -292,6 +292,7 @@ float C4_5::calculate_precision_of_prediction(std::vector<Abalone> &test_Abalone
 	}
 	return (almoust_right_answers / test_Abalones.size());
 }
+
 void C4_5::get_uniq_values(std::vector<Abalone> &Abalones, std::vector<float> &all_values, Global::ATTRIBUTES TAG, int count)
 {
 	for (int i = 0; i < Abalones.size(); i++)
@@ -391,6 +392,7 @@ void C4_5::desigion_tree_to_file(Node *tree, std::string file_name)
 	add_node_to_ofstream(n, fout);
 	fout.close();
 }
+
 Node * C4_5::tree_from_file(std::string file_name, std::set<char> &Sex_classes)
 {
 	std::string line;
@@ -460,6 +462,7 @@ Node * C4_5::tree_from_file(std::string file_name, std::set<char> &Sex_classes)
 	}
 	return root;
 }
+
 void C4_5::add_node_id_to_ofstream(Node * node, std::ofstream &fout)
 {
 	std::vector<Node *> v = node->get_children();
@@ -472,6 +475,7 @@ void C4_5::add_node_id_to_ofstream(Node * node, std::ofstream &fout)
 		add_node_id_to_ofstream(n, fout);
 	}
 }
+
 void C4_5::add_node_to_ofstream(Node * node, std::ofstream &fout)
 {
 	std::vector<Node *> v = node->get_children();
