@@ -69,6 +69,7 @@ Matrix<T>::Matrix(int rows, int columns)
 		this->arr[i] = new T[columns];
 		for (int j = 0; j < columns; j++)
 		{
+			//T tmp = 0;   ?????????????????
 			T *init = new T();
 			arr[i][j] = *init;
 			delete init;

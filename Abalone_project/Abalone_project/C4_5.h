@@ -10,7 +10,7 @@ public:
 	float entropy;
 	Global::ATTRIBUTES TAG;
 	Condition(){ entropy = 0; TAG = Global::DIAMETER; }
-	virtual ~Condition(){ std::cout << "DESTRUCTOR Condition " << std::endl; }
+	virtual ~Condition(){ /*std::cout << "DESTRUCTOR Condition " << std::endl;*/ }
 	Condition(float entropy, Global::ATTRIBUTES TAG){ this->entropy = entropy; this->TAG = TAG; }
 	static bool compare(Condition *a, Condition *b){ return a->entropy < b->entropy; }
 	virtual std::string to_string(){ return Global::attribute_to_string(TAG).append(Parser::delimiter_space).append(std::to_string(entropy)); }
@@ -20,7 +20,7 @@ class Equally : public Condition
 public:
 	Equally() : Condition(){}
 	Equally(float entropy, Global::ATTRIBUTES TAG, std::set<char> classes) : Condition(entropy, TAG){ this->classes = classes; }
-	~Equally(){ std::cout << "DESTRUCTOR Equally " << std::endl; }
+	~Equally(){ /*std::cout << "DESTRUCTOR Equally " << std::endl;*/ }
 	std::set<char> classes;
 	std::string to_string(){ return Condition::to_string(); }
 };
@@ -30,7 +30,7 @@ public:
 	float threshold;
 	Less() : Condition(){ threshold = 0; }
 	Less(float entropy, Global::ATTRIBUTES TAG, float threshold) : Condition(entropy, TAG){ this->threshold = threshold; }
-	~Less(){ std::cout << "DESTRUCTOR Less " << std::endl; }
+	~Less(){ /*std::cout << "DESTRUCTOR Less " << std::endl;*/ }
 	std::string to_string(){ return Condition::to_string().append(Parser::delimiter_space).append(std::to_string(threshold)); }
 };
 
