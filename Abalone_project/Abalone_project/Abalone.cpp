@@ -115,3 +115,12 @@ bool Abalone::compare(Abalone a, Abalone b)
 	}
 	return false;
 }
+double * Abalone::get_target_values(std::vector<Abalone> &Abalones)
+{
+	double * targe_values = new double[Abalones.size()];
+	for (int i = 0; i < Abalones.size(); i++)
+	{
+		targe_values[i] = Abalones[i].get_Rings();
+	}
+	return targe_values;
+}

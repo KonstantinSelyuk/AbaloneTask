@@ -41,6 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -81,24 +83,31 @@
     <ClCompile Include="Abalone.cpp" />
     <ClCompile Include="C4_5.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="libsvm-3.20\svm.cpp" />
     <ClCompile Include="Linear_Regression.cpp" />
     <ClCompile Include="Linear_Regression_Matrix.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Naive_Bayes.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="SupportVectorMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abalone.h" />
     <ClInclude Include="C4_5.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="libsvm-3.20\svm.h" />
     <ClInclude Include="Linear_Regression.h" />
     <ClInclude Include="Linear_Regression_Matrix.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Naive_Bayes.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="SupportVectorMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Abalone_project.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,8 +7,9 @@
 #include "C4_5.h"
 #include "Linear_Regression.h"
 #include "Linear_Regression_Matrix.h"
+#include "SupportVectorMachine.h"
 
-#include "libsvm-3.20/svm.h"
+//#include "libsvm-3.20/svm.h"
 //#include "Matrix.h"
 
 template <typename T1, typename T2, typename T3>
@@ -18,6 +19,7 @@ void run_Naive_Bayes();
 void run_C45();
 void run_Linear_Regression();
 void run_Linear_Regression_Matrix_version();
+void run_SVM_library();
 
 // Global vriables
 std::vector<Abalone> Abalones, learning_Abalones, test_Abalones;
@@ -28,11 +30,11 @@ std::set<char> Sex_classes;
 int main()
 {
 	init();
-	run_Naive_Bayes();
-	run_C45();
-	run_Linear_Regression();
-	run_Linear_Regression_Matrix_version();
-	
+	//run_Naive_Bayes();
+	//run_C45();
+	//run_Linear_Regression();
+	//run_Linear_Regression_Matrix_version();
+	run_SVM_library();
 
 
 	return 0;
@@ -127,6 +129,19 @@ void run_Linear_Regression_Matrix_version()
 	for (int i = 0; i < 5; i++)
 	{
 		double out_precision = LR_M.calculate_precision_of_prediction(test_Abalones, alpha_, i);
+		std::cout << " Precision + or - " << i << " years: " << out_precision * 100 << "% " << std::endl;
+	}
+}
+
+void run_SVM_library()
+{
+	SupportVectorMachine My_SVM;
+
+	svm_model * SVM_MODEL = My_SVM.get_svm_model(learning_Abalones);
+	std::cout << "SVM method " << std::endl;
+	for (int i = 0; i < 5; i++)
+	{
+		double out_precision = My_SVM.calculate_precision_of_prediction(test_Abalones, SVM_MODEL, i);
 		std::cout << " Precision + or - " << i << " years: " << out_precision * 100 << "% " << std::endl;
 	}
 }

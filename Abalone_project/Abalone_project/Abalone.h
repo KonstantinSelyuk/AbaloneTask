@@ -39,6 +39,7 @@ public:
 	static void define_classes(std::vector<Abalone> &Abalones, std::set<int> &classes);
 	static void define_Sex_classes(std::vector<Abalone> &Abalones, std::set<char> &Sex_classes);
 	static void define_max_min_values(std::vector<Abalone> &Abalones, std::set<int> &classes);
+	static double * get_target_values(std::vector<Abalone> &Abalones);
 
 	/*
 		Transforms float value to appropriate integer class. Generally the method returns number of the range
