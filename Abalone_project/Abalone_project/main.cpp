@@ -135,6 +135,8 @@ void run_Linear_Regression_Matrix_version()
 
 void run_SVM_library()
 {
+	// http://www.csie.ntu.edu.tw/~cjlin/libsvm/ 
+
 	SupportVectorMachine My_SVM;
 
 	svm_model * SVM_MODEL = My_SVM.get_svm_model(learning_Abalones);
